@@ -1,8 +1,3 @@
-//note2Self: when using the devtools pane with microsoft edge, be sure to save in VSCode and hit the 
-//green reload button so that the live server updates both the html and js code.
-//(save is command + s for mac). Also reload from the webpage and not the devtools pane
-//document.getElementById("result").style.display = "none";
-
 function makeOdometer(el, value){
     const odometer = new Odometer({
         el: el,
@@ -11,7 +6,6 @@ function makeOdometer(el, value){
     odometer.update(value);
 };
 
-//this function checks the data to see if it is good, collects it, sorts it, then modifies the elements on the page to display results
 document.getElementById("submitter").onclick = function(){
     let userWeight = parseInt(document.getElementById("weight").value);
     let userAge = parseInt(document.getElementById("age").value);
@@ -19,6 +13,7 @@ document.getElementById("submitter").onclick = function(){
     let userInches = parseInt(document.getElementById("userInches").value);
     let userActivity = parseInt(document.getElementById("activity").value);
 
+//this function checks the data to see if it is good, collects it, sorts it, then modifies the elements on the page to display results
     if(isNaN(userWeight) || userWeight > 500 || userWeight < 5){
         document.getElementById("warning").textContent = "*Invalid weight*";
     }
@@ -38,12 +33,14 @@ document.getElementById("submitter").onclick = function(){
         document.getElementById("result").style.visibility =  "visible";
         document.getElementById("result").style.animation =  "resultAnimation 2.5s";
         document.getElementById("warning").textContent = "";
-        //adjust to fit in just one warning box
+        
         console.log(userFeet + ", " + userInches);
+        
         let userHeight = parseInt((document.getElementById("userFeet").value * 12)) + parseInt((document.getElementById("userInches").value));
         console.log(userHeight);
         let userSex;
         let genders = document.getElementsByName("gender");
+        //checking which gender has been checked off
         for(let i = 0; i < genders.length; i++){
             if(genders[i].checked)
             {
@@ -53,12 +50,10 @@ document.getElementById("submitter").onclick = function(){
         if(gender=="male")
         {
             userSex = "male";
-            //change calorie amount according to needs for a male
         }
         else
         {
             userSex = "female";
-            //change calorie amount accroding to needs for a female
         }
 
         let userGoal = document.getElementById("userGoal").value;
@@ -90,6 +85,7 @@ document.getElementById("submitter").onclick = function(){
             totalCalories = parseInt((9.99 * (userWeight * 0.453592)) + (6.25 * (userHeight * 2.54)) - (4.92 * (userAge - 161)));
         }
 
+        //modifiers depending on 
         if(userGoal == "maintain"){
             totalProtein = userWeight;
         }
@@ -118,10 +114,12 @@ document.getElementById("submitter").onclick = function(){
         else if(userGoal == "weight"){
             if(userSex == "male"){
                 totalProtein = parseInt(userWeight * 1.2);
+                //this calorie amount was provided to me by my nutritionist.
                 totalCalories = 1800;
             }
             else{
                 totalProtein = parseInt(userWeight * 1.2);
+                //this calorie amount was provided to me by my nutritionist.
                 totalCalories = 1600;
             }
         }
@@ -129,10 +127,7 @@ document.getElementById("submitter").onclick = function(){
         //math ends here
         console.log(totalProtein);
         console.log(totalCalories);
-        /*
-        document.getElementById("result").style.display = "flex";
-        document.getElementById("result").classList.add("animation");
-        */
+        
         const proteinOdometer = document.getElementById("proteinOdometer");
         makeOdometer(proteinOdometer, (parseInt(totalProtein)));
         document.getElementById("proteinOdometer").style.display = "inline-block";
