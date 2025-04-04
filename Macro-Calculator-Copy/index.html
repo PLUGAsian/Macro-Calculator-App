@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flexbox Tester</title>
+        <!-- styles.css -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- Odometer -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css" integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    </head>
+    <body>
+        <h1 id="macroTitle">Macro Calculator</h1>
+        <div id="everything">
+            <div id="dataInputs">
+                <div id="numbers" class="inputs">
+                    <label for="weight" id="userWeight">Enter weight: 
+                        <input id="weight" type="number" name="weight" placeholder="lbs" class="notHeight"/>
+                    </label>
+                    <div id="userHeight">
+                        <label for="userFeet" id="userFeetLabel">Enter height:
+                            <input id="userFeet" type="number" name="feet" placeholder="feet" class="height"/>
+                            <input id="userInches" type="number" name="inches" placeholder="inches" class="height"/>
+                        </label>
+                    </div>
+                    <label for="age" id="userAge">Enter age:
+                        <input id="age" type="number" name="age" placeholder="age" class="notHeight"/>
+                    </label>
+                    <label>Enter days of exercise per week:
+                        <input id="activity" type="number" name="activity" placeholder="days" />
+                    </label>
+                </div>
+                <div id="notNumbers" class="inputs">
+                    <label for="genderMale">Gender: Male
+                        <input id="genderMale" name="gender" value="male" type="radio" class="radio"/>
+                        Female <input id="genderFemale" name="gender" value="female" type="radio" class="radio"/>
+                    </label>
+                    <label for="userGoal" id="userGoalLabel">Goal:
+                        <select id="userGoal" name="userGoal">
+                            <option value="maintain">Maintenance (no weight gain nor loss)</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="weight">Weight Loss</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div id="result">
+                <div id="proteinDiv">
+                    <p id="protein">Protein Needed:</p>
+                    <p id="proteinResult">
+                        <h2><a id="proteinOdometer"></a><a id="proteinWords"></a></h2>
+                    </p>
+                </div>
+                <div id="calorieDiv">
+                    <p id="calories">Calories Needed:</p>
+                    <p id="calorieResult">
+                        <h2><a id="calorieOdometer"></a><a id="calorieWords"></a></h2>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="details">
+            <button id="submitter">Calculate</button>
+            <div id="warningDiv">
+                <p id="warning"></p>
+            </div>
+            <div id="infoDiv">
+                <h2 id="hello">Hello!</h2>
+                <h3 id="welcome">Welcome to my macronutrient calculator!</h3>
+                <div id="explanation">
+                    <p id="infoText">This app is meant to be used as a general estimation as to how many protein and calories you should eat per day. The calculations are derived using the Mifflin St. Joer Equation which is as follows:</p>
+                    <ul id="equations">
+                        <li class="notNav"><a class="anchor">Male:</a> 9.99 x weight in kilograms + 6.25 x height in centimeters – 4.92 x age + 5</li>
+                        <li class="notNav"><a class="anchor">Female:</a> 9.99 x weight in kilograms + 6.25 x height in centimeters – 4.92 x age – 161</li>
+                    </ul>
+                </div>
+                <h3 id="sorucesTitle">Source</h3>
+                <div id="sources">
+                    <ul id="sourceList">
+                        <li class="source"><a href="https://www.livestrong.com/article/317684-how-many-calories-should-i-be-eating-for-my-height/">livestrong.com</a></li>
+                    </ul>
+                </div>
+                <h3 id="creditsTitle">Extra Credits</h3>
+                <div id="credits">
+                    <ul id="creditsList">
+                        <li class="credit">YouTube</li>
+                        <li class="credit">StackOverflow</li>
+                        <li id="last" class="credit">W3Schools</li>
+                        <li class="credit">MDN Webdocs</li>
+                    </ul>
+                </div>
+                <h2 id="video">Link to video <a href="https://youtu.be/DfxaFxK3peQ">here</a></h2>
+            </div>
+        </div>
+        <script src="calculator.js"></script>
+        <!-- Odometer script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>
